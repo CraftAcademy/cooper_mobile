@@ -23,11 +23,14 @@ export class HomePage {
 
   calculate(user) {
     this.result = this.person.doAssessment(user, user.distance);
-    this.perfomanceData
-      .saveData({ performance_data: { data: { message: this.result } } })
-      .subscribe(data => console.log(data));
   }
   showResults() {
     this.modalCtrl.create(ResultsPage).present();
+  }
+
+  saveResult() {
+    this.perfomanceData
+      .saveData({ performance_data: { data: { message: this.result } } })
+      .subscribe(data => console.log(data));
   }
 }
